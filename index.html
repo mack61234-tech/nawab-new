@@ -1,79 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>System Breach 😈</title>
+<title>CRITICAL BREACH</title>
 
 <style>
 body {
 background:black;
 color:#00ff00;
 font-family:monospace;
-font-size:18px;
-padding:20px;
+padding:15px;
+overflow:hidden;
+}
+
+#log {
+height:80vh;
+overflow:auto;
 }
 
 .big {
 font-size:60px;
 color:red;
 text-align:center;
-margin-top:40px;
-}
-
-.blink {
 animation: blink 1s infinite;
 }
 
-@keyframes blink {
-50% {opacity: 0;}
+@keyframes blink {50%{opacity:0;}}
+
+.warning {
+color:red;
+font-size:25px;
+text-align:center;
+margin-top:10px;
 }
 </style>
 
 </head>
 
-<body>
+<body onclick="startHack()">
 
-<h2 class="blink">⚠️ SYSTEM BREACH ⚠️</h2>
-
+<h2 class="warning">⚠️ DO NOT TOUCH DEVICE ⚠️</h2>
 <div id="log"></div>
 
 <script>
 
+let started = false;
 let log = document.getElementById("log");
 
+function startHack(){
+
+if(started) return;
+started = true;
+
+// 🔊 sound
+let audio = new Audio("https://www.soundjay.com/button/beep-10.wav");
+audio.loop = true;
+audio.play();
+
+// 📳 vibration loop
+if(navigator.vibrate){
+setInterval(()=>{
+navigator.vibrate([300,100,300]);
+},2000);
+}
+
+// fullscreen
+document.body.requestFullscreen();
+
 let lines = [
-"Initializing hack protocol...",
-"Connecting to dark server...",
+"Connecting to remote server...",
 "Bypassing firewall...",
+"Injecting exploit...",
 "Access granted...",
-"Injecting malware...",
-"Decrypting files...",
-"Downloading contacts...",
-"Downloading gallery...",
-"Accessing WhatsApp chats...",
-"Tracking live location...",
-"IP address logged...",
-"Device control enabled...",
-"Sending data to dark web...",
-"Installing backdoor...",
-"Activating camera...",
-"Recording microphone...",
+"Reading contacts...",
+"Copying gallery...",
+"Tracking location...",
+"Accessing camera...",
+"Recording audio...",
 "Uploading data...",
-"System override complete..."
+"Encrypting system files...",
+"Installing backdoor...",
+"Sending to dark web...",
+"Finalizing attack..."
 ];
 
-let i = 0;
+let count = 0;
 
+// main animation
 function run(){
-    if(i < lines.length){
-        log.innerHTML += lines[i] + "<br>";
-        i++;
-        setTimeout(run, 1200);
-    } else {
-        document.body.innerHTML += "<div class='big'>😈 Nawab 👑 😈</div>";
-    }
+if(count < 90){
+let line = lines[Math.floor(Math.random()*lines.length)];
+log.innerHTML += line + "<br>";
+log.scrollTop = log.scrollHeight;
+count++;
+setTimeout(run, 600);
+}else{
+showFinal();
+}
 }
 
 run();
+
+// fake popup after few sec
+setTimeout(()=>{
+alert("⚠️ Virus Detected!\nSystem is being controlled...");
+},5000);
+
+// fake countdown
+setTimeout(()=>{
+let c = 5;
+let timer = setInterval(()=>{
+document.body.innerHTML = "<h1 style='color:red;text-align:center;'>Deleting Data in "+c+"...</h1>";
+c--;
+if(c<0){
+clearInterval(timer);
+document.body.innerHTML = "<div class='big'>😈 Nawab 👑 😈</div>";
+}
+},1000);
+},20000);
+
+function showFinal(){
+log.innerHTML += "<br><span style='color:red;'>SYSTEM OVERRIDDEN</span>";
+}
+
+}
 
 </script>
 
