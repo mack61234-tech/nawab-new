@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hacked 😈</title>
+
+<style>
+body {
+background:black;
+color:#00ff00;
+font-family:monospace;
+text-align:center;
+}
+.big {
+font-size:40px;
+color:red;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>⚠️ SYSTEM BREACH ⚠️</h2>
+
+<div id="log"></div>
+
+<script>
+
+let log = document.getElementById("log");
+
+let lines = [
+"Connecting...",
+"Access granted...",
+"Downloading data...",
+"Tracking location...",
+"IP logged..."
+];
+
+let i = 0;
+
+function run(){
+    if(i < lines.length){
+        log.innerHTML += lines[i] + "<br>";
+        i++;
+        setTimeout(run, 800);
+    } else {
+        document.body.innerHTML += "<br><div class='big'>😈 Nawab 👑 😈</div>";
+    }
+}
+
+run();
+
+</script>
+
+</body>
+</html>
