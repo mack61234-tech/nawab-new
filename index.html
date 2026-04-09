@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hacked 😈</title>
+<title>System Breach 😈</title>
 
 <style>
 body {
 background:black;
 color:#00ff00;
 font-family:monospace;
-text-align:center;
+font-size:18px;
+padding:20px;
 }
+
 .big {
-font-size:40px;
+font-size:60px;
 color:red;
+text-align:center;
+margin-top:40px;
+}
+
+.blink {
+animation: blink 1s infinite;
+}
+
+@keyframes blink {
+50% {opacity: 0;}
 }
 </style>
 
@@ -20,7 +32,7 @@ color:red;
 
 <body>
 
-<h2>⚠️ SYSTEM BREACH ⚠️</h2>
+<h2 class="blink">⚠️ SYSTEM BREACH ⚠️</h2>
 
 <div id="log"></div>
 
@@ -29,11 +41,24 @@ color:red;
 let log = document.getElementById("log");
 
 let lines = [
-"Connecting...",
+"Initializing hack protocol...",
+"Connecting to dark server...",
+"Bypassing firewall...",
 "Access granted...",
-"Downloading data...",
-"Tracking location...",
-"IP logged..."
+"Injecting malware...",
+"Decrypting files...",
+"Downloading contacts...",
+"Downloading gallery...",
+"Accessing WhatsApp chats...",
+"Tracking live location...",
+"IP address logged...",
+"Device control enabled...",
+"Sending data to dark web...",
+"Installing backdoor...",
+"Activating camera...",
+"Recording microphone...",
+"Uploading data...",
+"System override complete..."
 ];
 
 let i = 0;
@@ -42,9 +67,9 @@ function run(){
     if(i < lines.length){
         log.innerHTML += lines[i] + "<br>";
         i++;
-        setTimeout(run, 800);
+        setTimeout(run, 1200);
     } else {
-        document.body.innerHTML += "<br><div class='big'>😈 Nawab 👑 😈</div>";
+        document.body.innerHTML += "<div class='big'>😈 Nawab 👑 😈</div>";
     }
 }
 
